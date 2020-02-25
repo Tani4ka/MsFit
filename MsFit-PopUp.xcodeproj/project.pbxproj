@@ -28,6 +28,7 @@
 		5657315A24051EEE0056ABD3 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5657315724051EEE0056ABD3 /* Environment.swift */; };
 		5657315B24051EEE0056ABD3 /* Dependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5657315824051EEE0056ABD3 /* Dependency.swift */; };
 		5657315F240520630056ABD3 /* NSLayoutConstraint+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5657315E240520630056ABD3 /* NSLayoutConstraint+Ext.swift */; };
+		56573162240563FD0056ABD3 /* autoLayoutToSuperview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56573161240563FD0056ABD3 /* autoLayoutToSuperview.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		5657315724051EEE0056ABD3 /* Environment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		5657315824051EEE0056ABD3 /* Dependency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dependency.swift; sourceTree = "<group>"; };
 		5657315E240520630056ABD3 /* NSLayoutConstraint+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSLayoutConstraint+Ext.swift"; sourceTree = "<group>"; };
+		56573161240563FD0056ABD3 /* autoLayoutToSuperview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = autoLayoutToSuperview.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +134,7 @@
 				5657315624051EEE0056ABD3 /* Constants.swift */,
 				5657315724051EEE0056ABD3 /* Environment.swift */,
 				5657315824051EEE0056ABD3 /* Dependency.swift */,
+				56573161240563FD0056ABD3 /* autoLayoutToSuperview.swift */,
 			);
 			path = CommonClasses;
 			sourceTree = "<group>";
@@ -240,6 +243,7 @@
 			files = (
 				5657315F240520630056ABD3 /* NSLayoutConstraint+Ext.swift in Sources */,
 				5657312B24051C100056ABD3 /* ViewController.swift in Sources */,
+				56573162240563FD0056ABD3 /* autoLayoutToSuperview.swift in Sources */,
 				5657315B24051EEE0056ABD3 /* Dependency.swift in Sources */,
 				5657313C24051C940056ABD3 /* PopUpView.swift in Sources */,
 				5657315A24051EEE0056ABD3 /* Environment.swift in Sources */,
