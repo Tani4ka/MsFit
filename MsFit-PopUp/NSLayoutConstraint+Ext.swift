@@ -152,6 +152,7 @@ extension NSLayoutContraintPresentable where Self == LayoutPositionable {
             return [view.topAnchor.constraint(equalTo: (toView ?? superView).centerYAnchor, constant: inset)]
         }
     }
+     // swiftlint:enable cyclomatic_complexity
 }
 
 extension Array where Element == LayoutPositionable {
@@ -266,6 +267,11 @@ extension Array where Element == LayoutPositionable {
 }
 
 extension UIView {
+
+    @discardableResult func add<T: UIView>(_ subview: T) -> T {
+        addSubview(subview)
+        return subview
+    }
 
     @discardableResult func add<T>(_ subView: T, layoutBlock: ((T) -> [LayoutPositionable]))
         -> NSLayoutConstraint? where T: UIView {
