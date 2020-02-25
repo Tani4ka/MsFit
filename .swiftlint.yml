@@ -1,0 +1,109 @@
+# https://realm.github.io/SwiftLint/cyclomatic_complexity.html - Swiftlint Rules
+
+# Disabling rules in the code:
+# // swiftlint:disable cyclomatic_complexity
+# .........
+# // swiftlint:enable cyclomatic_complexity
+
+
+disabled_rules: # rule identifiers to exclude from running
+# Colons - ":" should be next to the identifier when specifying a type and next to the key.
+# Comma - there should be no space before and one after any comma.
+# Control_statement - if,for,guard,switch,while,catch shouldn't unnecessarily wrap arguments.
+  # - colon
+  # - comma
+  # - control_statement
+
+trailing_whitespace:
+  # - identifier_name
+  # - type_name
+  # - force_cast
+  # - legacy_constructor
+  # - cyclomatic_complexity
+  # - function_body_length
+
+opt_in_rules: # some rules are only opt-in. Prefer checking isEmpty over comparing count to zero.
+  - empty_count
+  - empty_string
+  - missing_docs
+
+included: # paths to include during linting.
+  # - MsFit_PopUp/ViewController.swift
+
+excluded: # paths to ignore during linting.
+  - Carthage
+  - Pods
+  - MsFit-PopUp/SceneDelegate.swift
+  - MsFit-PopUp/AppDelegate.swift
+#  - MsFit-PopUp/CommonClasses/Constants.swift
+  # - Source/ExcludedFile.swift
+  # - Source/*/ExcludedFile.swift
+
+analyzer_rules: # Rules run by `swiftlint analyze` (experimental)
+# Instance variables and functions should be explicitly accessed with '.self'
+  - explicit_self
+
+# binary rules can set their severity level
+force_cast: warning # implicitly
+force_try:
+  severity: warning # explicitly
+
+line_length:
+  warning: 150
+  error: 200
+  ignores_comments: true
+  ignores_urls: true
+  ignores_function_declarations: true
+#  ignores_interpolated_strings: true
+
+type_body_length:
+  warning: 300
+  error: 500
+
+function_parameter_count:
+   warning: 6
+   error: 8
+   
+function_body_length:
+  warning: 300
+  error: 500
+    
+file_length:
+  warning: 500
+  error: 1200
+  # ignore_comment_only_lines: true
+
+cyclomatic_complexity:
+  warning: 15
+  error: 25
+    
+# reporter type (xcode, json, csv, checkstyle, junit, html, emoji, sonarqube, markdown)
+reporter: "xcode"
+
+type_name:
+  min_length: 4 # only warning
+  max_length: # warning and error
+    warning: 40
+    error: 50
+  excluded: iPhone # excluded via string
+
+identifier_name:
+  min_length: # only min_length
+    error: 3 # only error
+  excluded: # excluded via string array
+    - id
+    - URL
+    - GlobalAPIKey
+
+# Id insted ID
+# custom_rules:
+#   id_suffix_naming:
+#     name: "Wrong name"
+#     regex: "(ID)"
+#     match_kinds:
+#       - comment
+#       - identifier
+#     message: "Use 'Id' instead 'ID'"
+#     severity: error
+
+
