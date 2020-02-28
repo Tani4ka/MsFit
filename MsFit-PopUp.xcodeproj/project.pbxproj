@@ -28,7 +28,6 @@
 		5657315A24051EEE0056ABD3 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5657315724051EEE0056ABD3 /* Environment.swift */; };
 		5657315B24051EEE0056ABD3 /* Dependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5657315824051EEE0056ABD3 /* Dependency.swift */; };
 		5657315F240520630056ABD3 /* NSLayoutConstraint+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5657315E240520630056ABD3 /* NSLayoutConstraint+Ext.swift */; };
-		56573162240563FD0056ABD3 /* autoLayoutToSuperview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56573161240563FD0056ABD3 /* autoLayoutToSuperview.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,7 +54,6 @@
 		5657315724051EEE0056ABD3 /* Environment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		5657315824051EEE0056ABD3 /* Dependency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dependency.swift; sourceTree = "<group>"; };
 		5657315E240520630056ABD3 /* NSLayoutConstraint+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSLayoutConstraint+Ext.swift"; sourceTree = "<group>"; };
-		56573161240563FD0056ABD3 /* autoLayoutToSuperview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = autoLayoutToSuperview.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,16 +86,14 @@
 		5657312524051C100056ABD3 /* MsFit-PopUp */ = {
 			isa = PBXGroup;
 			children = (
+				5679343C2409378B0093E398 /* ViewControllers */,
+				5657313A24051C700056ABD3 /* Views */,
+				5679343B240937330093E398 /* Extensions */,
 				5657315524051EEE0056ABD3 /* CommonClasses */,
 				5657314024051E860056ABD3 /* Fonts */,
-				5657313A24051C700056ABD3 /* Views */,
+				5679343A240936DA0093E398 /* Resources */,
 				5657312624051C100056ABD3 /* AppDelegate.swift */,
 				5657312824051C100056ABD3 /* SceneDelegate.swift */,
-				5657312A24051C100056ABD3 /* ViewController.swift */,
-				5657315E240520630056ABD3 /* NSLayoutConstraint+Ext.swift */,
-				5657312C24051C100056ABD3 /* Main.storyboard */,
-				5657312F24051C110056ABD3 /* Assets.xcassets */,
-				5657313124051C110056ABD3 /* LaunchScreen.storyboard */,
 				5657313424051C110056ABD3 /* Info.plist */,
 			);
 			path = "MsFit-PopUp";
@@ -134,9 +130,34 @@
 				5657315624051EEE0056ABD3 /* Constants.swift */,
 				5657315724051EEE0056ABD3 /* Environment.swift */,
 				5657315824051EEE0056ABD3 /* Dependency.swift */,
-				56573161240563FD0056ABD3 /* autoLayoutToSuperview.swift */,
 			);
 			path = CommonClasses;
+			sourceTree = "<group>";
+		};
+		5679343A240936DA0093E398 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				5657312C24051C100056ABD3 /* Main.storyboard */,
+				5657312F24051C110056ABD3 /* Assets.xcassets */,
+				5657313124051C110056ABD3 /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		5679343B240937330093E398 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				5657315E240520630056ABD3 /* NSLayoutConstraint+Ext.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		5679343C2409378B0093E398 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				5657312A24051C100056ABD3 /* ViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -243,7 +264,6 @@
 			files = (
 				5657315F240520630056ABD3 /* NSLayoutConstraint+Ext.swift in Sources */,
 				5657312B24051C100056ABD3 /* ViewController.swift in Sources */,
-				56573162240563FD0056ABD3 /* autoLayoutToSuperview.swift in Sources */,
 				5657315B24051EEE0056ABD3 /* Dependency.swift in Sources */,
 				5657313C24051C940056ABD3 /* PopUpView.swift in Sources */,
 				5657315A24051EEE0056ABD3 /* Environment.swift in Sources */,
