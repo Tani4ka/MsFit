@@ -13,12 +13,12 @@ class PopUpView: UIView {
     private var infoImg: UIImageView = {
         let infoImg = UIImage(named: "popUpInfo_img")
         let infoImgView = UIImageView(image: infoImg)
+//        infoImgView.isHidden = true  // for ok popUp screen
         return infoImgView
     }()
 
     private let infoTitle: UILabel = {
         let label = UILabel()
-//        label.text = "Warning !"
         label.font = UIFont(name: "Rubik-Bold", size: 13)
         label.textColor = UIColor(named: "appGray")
         label.backgroundColor = .white
@@ -30,21 +30,19 @@ class PopUpView: UIView {
 
     private let infoText: UILabel = {
         let label = UILabel()
-//        label.text = "Please check out your\ninternet connection"
         label.font = UIFont(name: "Rubik-Medium", size: 22)
         label.textColor = UIColor(named: "appBlack")
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
         label.backgroundColor = .white
-
 //        var paragraphStyle = NSMutableParagraphStyle()
 //        paragraphStyle.lineHeightMultiple = 2
-
         let attributedString = NSMutableAttributedString(string: "Please check out your\ninternet connection")
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineSpacing = 6
         attributedString.addAttribute(NSAttributedString.Key.paragraphStyle, value: paragraphStyle,
                                       range: NSRange(location: 0, length: attributedString.length))
+        label.attributedText = attributedString
         label.textAlignment = .center
         return label
     }()
@@ -75,9 +73,12 @@ class PopUpView: UIView {
         infoView.layer.cornerRadius = 10
         infoView.clipsToBounds = true
 
+//        add(infoView, layoutBlock: {
+//            $0.top(Constants.sHeightMore812 ? 205 : 152).leading(16)
+//                .bottom(Constants.sHeightMore812 ? 200 : 147).trailing(16) })
+
         add(infoView, layoutBlock: {
-            $0.top(Constants.sHeightMore812 ? 205 : 152).leading(16)
-                .bottom(Constants.sHeightMore812 ? 200 : 147).trailing(16) })
+            $0.leading(16).trailing(16).centerY() })
 
 //        infoView.addSubview(infoImg)
 //        infoImg.translatesAutoresizingMaskIntoConstraints = false
@@ -107,22 +108,38 @@ class PopUpView: UIView {
         popUpButton.trailingAnchor.constraint(equalTo: infoView.trailingAnchor, constant: 0).isActive = true
         popUpButton.bottomAnchor.constraint(equalTo: infoView.bottomAnchor, constant: 0).isActive = true
 
+        // stackViewText
+        let stackViewText = UIStackView()
+        stackViewText.axis = NSLayoutConstraint.Axis.vertical
+        stackViewText.distribution = UIStackView.Distribution.equalSpacing
+        stackViewText.alignment = UIStackView.Alignment.center
+        stackViewText.spacing = 10
+//        stackViewText.spacing = 27 // for ok popUp screen
+
+        stackViewText.addArrangedSubview(infoTitle)
+        stackViewText.addArrangedSubview(infoText)
+        stackViewText.translatesAutoresizingMaskIntoConstraints = false
+
         // Stack View
-        let stackView   = UIStackView()
-        stackView.axis  = NSLayoutConstraint.Axis.vertical
-        stackView.distribution  = UIStackView.Distribution.equalSpacing
+        let stackView = UIStackView()
+        stackView.axis = NSLayoutConstraint.Axis.vertical
+        stackView.distribution = UIStackView.Distribution.equalSpacing
         stackView.alignment = UIStackView.Alignment.center
-        stackView.spacing   = 16.0
+        stackView.spacing = 35
 
         stackView.addArrangedSubview(infoImg)
-        stackView.addArrangedSubview(infoTitle)
-        stackView.addArrangedSubview(infoText)
+        stackView.addArrangedSubview(stackViewText)
         stackView.translatesAutoresizingMaskIntoConstraints = false
 
         infoView.add(stackView, layoutBlock: {
-                   $0.leading().trailing().bottomTop(-32, to: popUpButton).top(60)
-               })
-
+           $0.leading().trailing().bottomTop(-32, to: popUpButton).top(60)
+       })
+        stackView.add(stackViewText, layoutBlock: {
+            $0.leading().trailing()
+        })
+        stackViewText.add(infoText, layoutBlock: {
+            $0.leading().trailing()
+        })
     }
 
     override init(frame: CGRect) {
@@ -135,6 +152,7 @@ class PopUpView: UIView {
         super.init(coder: aDecoder)
     }
 
+    // autoLayoutToSuperview for blurView
     func autoLayoutToSuperview(_ attributes: [NSLayoutConstraint.Attribute] = [.left, .right, .top, .bottom], inset: CGFloat = 0) -> [NSLayoutConstraint] {
 
         var constraints: [NSLayoutConstraint] = []
@@ -165,13 +183,5 @@ class PopUpView: UIView {
         }
         return constraints
     }
-
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
 
 }
